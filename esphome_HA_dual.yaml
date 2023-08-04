@@ -1,0 +1,38 @@
+esphome:
+  name: dual_relay_module
+  platform: ESP8266
+  board: nodemcuv2  # Adjust the board type based on your ESP8266 variant
+
+wifi:
+  ssid: "YOUR_WIFI_SSID"
+  password: "YOUR_WIFI_PASSWORD"
+
+api:
+
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Dual Relay Module Status"
+
+output:
+  - platform: gpio
+    pin: D0
+    id: relay_1
+    inverted: true
+    restore_mode: RESTORE_DEFAULT_OFF  # Set the initial state to OFF after reboot
+  - platform: gpio
+    pin: D1
+    id: relay_2
+    inverted: true
+    restore_mode: RESTORE_DEFAULT_OFF  # Set the initial state to OFF after reboot
+
+switch:
+  - platform: output
+    name: "Relay 1"
+    id: relay1_output
+    output: relay_1
+  - platform: output
+    name: "Relay 2"
+    id: relay2_output
+    output: relay_2
