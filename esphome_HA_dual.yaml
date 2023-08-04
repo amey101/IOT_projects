@@ -36,3 +36,5 @@ switch:
     name: "Relay 2"
     id: relay2_output
     output: relay_2
+#DO-INT1
+#D1-INT2
